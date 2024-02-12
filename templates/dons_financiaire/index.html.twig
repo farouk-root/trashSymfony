@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DonsFinanciaire index{% endblock %}
+
+{#{% block css %}#}
+{#    <style>#}
+{#        .table {#}
+{#            width: 100%;#}
+{#            border-collapse: collapse;#}
+{#        }#}
+
+{#        .table th, .table td {#}
+{#            padding: 8px;#}
+{#            border: 1px solid #ddd;#}
+{#        }#}
+
+{#        .table th {#}
+{#            background-color: #f2f2f2;#}
+{#        }#}
+
+{#        .table tr:nth-child(even) {#}
+{#            background-color: #f2f2f2;#}
+{#        }#}
+
+{#        .table tr:hover {#}
+{#            background-color: #ddd;#}
+{#        }#}
+
+{#        .table td.actions a {#}
+{#            display: inline-block;#}
+{#            margin-right: 5px;#}
+{#            text-decoration: none;#}
+{#            color: blue;#}
+{#        }#}
+{#    </style>#}
+{#{% endblock %}#}
+
+{% block body %}
+    <h1>DonsFinanciaire index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Montant</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for dons_financiaire in dons_financiaires %}
+            <tr>
+                <td>{{ dons_financiaire.id }}</td>
+                <td>{{ dons_financiaire.titre }}</td>
+                <td>{{ dons_financiaire.Description }}</td>
+                <td>{{ dons_financiaire.montant }}</td>
+                <td class="actions">
+                    <a href="{{ path('app_dons_financiaire_show', {'id': dons_financiaire.id}) }}">show</a>
+                    <a href="{{ path('app_dons_financiaire_edit', {'id': dons_financiaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_dons_financiaire_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,16 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+{# Render each form field #}
+{% for child in form %}
+    <div class="form-group{% if child.vars.errors|length %} has-error{% endif %}">
+        {{ form_label(child) }}
+        {{ form_widget(child) }}
+        {% for error in child.vars.errors %}
+            <span class="help-block text-danger">{{ error.message }}</span>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+<button type="submit" class="btn">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}

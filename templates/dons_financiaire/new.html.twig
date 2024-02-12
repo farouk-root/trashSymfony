@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New DonsFinanciaire{% endblock %}
+
+{% block body %}
+    <h1>Create new DonsFinanciaire</h1>
+
+    {{ include('dons_financiaire/_form.html.twig') }}
+
+    <a href="{{ path('app_dons_financiaire_index') }}">back to list</a>
+{% endblock %}

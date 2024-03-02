@@ -16,7 +16,7 @@ class ContributionController extends AbstractController
 {
     #[Route('/', name: 'app_contribution_index', methods: ['GET'])]
     public function index(ContributionRepository $contributionRepository): Response
-    {a
+    {
         return $this->render('contribution/index.html.twig', [
             'contributions' => $contributionRepository->findAll(),
         ]);

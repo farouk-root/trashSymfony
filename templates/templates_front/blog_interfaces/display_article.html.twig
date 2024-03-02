@@ -1,0 +1,78 @@
+{% extends 'templates_front/baseFront.html.twig' %}
+    {% block body %}
+
+        <style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+
+		.blog_article {
+			display: flex;
+			gap: 50px;
+			flex-direction: column;
+			align-items: center;
+		}
+		.topic_wrapper {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: #d1d1d1;
+			color: #224abe;
+			font-size: 12px;
+			font-weight: 600;
+			border-radius: 20px;
+			padding: 8px 16px;
+			max-width: max-content;
+			text-transform: capitalize;
+         margin-top: 50px;
+		}
+		.article_title {
+			color: black;
+			text-transform: capitalize;
+			font-size: 42px;
+			font-weight: 600;
+		}
+		.article_img {
+			width: 80%;
+			border-radius: 20px;
+			object-fit: cover;
+         height: 400px;
+		}
+      .article_content{
+         width: 80%;
+         text-align: left;
+         font-size: 14px;
+         font-weight: 500;
+         color: black;
+      }
+      .title-wrapper{
+         display: flex;
+         align-items: center;
+         gap: 20px;
+         flex-direction: column;
+      }
+	</style>
+
+
+	<section class="blog_article">
+      <div class="title-wrapper">
+         <span class="topic_wrapper">{{article.sujet}}</span>
+         <h2 class="article_title">
+            {{article.titre}}
+         </h2>
+      </div>
+	
+		<img class="article_img" src="{{ asset('uploads/' ~ article.image) }}">
+		<p class="article_content">{{article.contenu}}</p>
+	</section>
+
+
+
+    {% endblock %}

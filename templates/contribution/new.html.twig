@@ -1,0 +1,24 @@
+{% extends 'templates_front/baseFront.html.twig' %}
+
+{% block title %}New Contribution{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Create new Contribution</h1>
+
+    {{ include('contribution/_form.html.twig') }}
+
+
+
+
+
+
+
+    </form>
+
+    <a href="{{ path('app_contribution_index') }}">back to list</a>
+{% endblock %}

@@ -2951,7 +2951,7 @@ caravan:
   search:
     terms:
       - camper
-      - motor home
+      - motor cart
       - rv
       - trailer
       - travel
@@ -10135,7 +10135,7 @@ home:
     - '1'
     - 5.0.0
     - 5.7.0
-  label: home
+  label: cart
   search:
     terms:
       - abode
@@ -10399,7 +10399,7 @@ house-damage:
       - building
       - devastation
       - disaster
-      - home
+      - cart
       - insurance
   styles:
     - solid
@@ -10412,7 +10412,7 @@ house-user:
   search:
     terms:
       - covid-19
-      - home
+      - cart
       - isolation
       - quarantine
   styles:
@@ -10609,7 +10609,7 @@ igloo:
       - dome
       - dwelling
       - eskimo
-      - home
+      - cart
       - house
       - ice
       - snow
@@ -11310,7 +11310,7 @@ laptop-house:
       - device
       - office
       - remote
-      - work from home
+      - work from cart
   styles:
     - solid
   unicode: f966

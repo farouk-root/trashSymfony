@@ -1,0 +1,81 @@
+{% extends 'templates_front/baseFront.html.twig' %}
+    {% block body %}
+    <!-- acceuil section -->
+    <section id="home">
+        <h4>Voyagez à votre rythme</h4>
+        <p>Rejoignez notre communauté de voyageurs passionnés dès aujourd'hui et commencez votre aventure avec nous !
+             Que vous souhaitiez explorer de nouveaux horizons, découvrir des saveurs exotiques ou simplement 
+             vous détendre dans des retraites paisibles, notre plateforme vous offre la possibilité de créer des 
+             itinéraires personnalisés adaptés à vos intérêts uniques. </p>
+        <a href="#" class="btn-login home-btn">Se connecter</a>
+        <a href="#" class="btn-signup home-btn">S'inscrire</a>
+    </section>
+
+    <!-- A propos section -->
+    <section id="a-propos">
+        <h1 class="title">à propos</h1>
+        <div class="img-desc">
+           <div class="left">
+                <video src="front/images/video.mp4" autoplay loop></video>
+           </div>
+            <div class="right">
+                <h3>Nous voyageons pour chercher d'autres états, d'autres vies, d'autres, âmes.</h3>
+                <p>Bienvenue sur notre site web ! Nous sommes une plateforme dédiée à connecter les voyageurs passionnés avec des guides 
+                    locaux expérimentés pour une expérience de voyage authentique et personnalisée. Que vous soyez un voyageur 
+                    solo en quête d'aventure ou un groupe en quête de découvertes culturelles, nous sommes là pour vous..</p>
+                <a href="#">Lire Plus</a>
+            </div>
+        </div>
+        
+    </section>
+  <!-- section destination -->
+  <section id="blog">
+    <h1 class="title">Histoires partagées</h1>
+    <div class="content">
+        <!-- box -->
+        {% for b in blog %}
+        <div class="box">
+            <img src="{{ asset('uploads/' ~ b.image) }}" alt="">
+                <div class="content">
+                    <div>
+                        <h2>{{ b.titre }}</h2>
+                        
+                        <a href="{{ path('display_article', {id: b.id}) }}">Lire Plus</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+           
+
+    <!--  contact section -->
+    <section id="contact">
+        <h1 class="title">Contact</h1>
+        <form action="">
+            <div class="left-right">
+                <div class="left">
+                    <label>Nom Complet</label>
+                    <input type="text">
+                    <label>Objet</label>
+                    <input type="text">
+                    <label>Email</label>
+                    <input type="text">
+                    <label>Message</label>
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="right">
+                    <label>Numéro</label>
+                    <input type="text">
+                    <label>Date</label>
+                    <input type="text">
+                    <label>Autres Details</label>
+                    <input type="text">
+                    <label>Adresse</label>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.292292615509614!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1647531560805!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <button>Envoyer</button>
+        </form>
+    </section>
+    {% endblock %}

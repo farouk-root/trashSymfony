@@ -68,5 +68,10 @@
         </tbody>
     </table>
 
+    <div class="d-flex justify-content-center">
+        {% do dons_financiaires.setPageRange(2) %}
+        {{ knp_pagination_render(dons_financiaires,'paginator.html.twig') }}
+    </div>
+
     <a href="{{ path('app_dons_financiaire_new') }}">Create new</a>
 {% endblock %}

@@ -6,6 +6,7 @@ use App\Entity\DonsFinanciaire;
 use App\Form\DonsFinanciaireType;
 use App\Repository\DonsFinanciaireRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,10 +16,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class DonsFinanciaireController extends AbstractController
 {
     #[Route('/', name: 'app_dons_financiaire_index', methods: ['GET'])]
-    public function index(DonsFinanciaireRepository $donsFinanciaireRepository): Response
+    public function index(DonsFinanciaireRepository $donsFinanciaireRepository ,
+    PaginatorInterface $paginator,
+    Request $request): Response
     {
+        $data = $donsFinanciaireRepository->findAll();
+        $dons = $paginator->paginate(
+            $data ,
+            $request->query->getInt('page',1),
+            6
+        );
         return $this->render('dons_financiaire/index.html.twig', [
-            'dons_financiaires' => $donsFinanciaireRepository->findAll(),
+            'dons_financiaires' => $dons,
         ]);
     }
 
